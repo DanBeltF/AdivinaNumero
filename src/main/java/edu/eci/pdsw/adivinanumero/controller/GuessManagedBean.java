@@ -6,6 +6,7 @@
 package edu.eci.pdsw.adivinanumero.controller;
 
 import java.util.concurrent.ThreadLocalRandom;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -15,21 +16,21 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "beanEstadoAdivinanza")
 @SessionScoped
+//@ApplicationScoped
 public class GuessManagedBean {
     
     private int numero;
     private int intentos = 5;
     private int premio = 50000;
     private String estado = "";
-    // El numero a adivinar se encuentra entre [1-5]
-    private int numeroAdivinar = ThreadLocalRandom.current().nextInt(1, 5 + 1);
-    private boolean primera = true;
-    
+    private int numeroAdivinar = ThreadLocalRandom.current().nextInt(1, 5 + 1);//El numero esta entre [1-5]
+    private boolean primera = true;//Primera oportunidad
+
     public int getNumero() {
         return numero;
     }
 
-    public void setNumero(int numeroAdivinar) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -56,7 +57,7 @@ public class GuessManagedBean {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
     public int getNumeroAdivinar() {
         return numeroAdivinar;
     }
@@ -86,7 +87,7 @@ public class GuessManagedBean {
             premio -= 10000;
             if (intentos < 0 || premio < 0){reiniciar();}
             primera = false;
-            estado = "¡Vuelva a intentar!";
+            estado = "¡Vuelva a intentarlo!";
         }
     }
     

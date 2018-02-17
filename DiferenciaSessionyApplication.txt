@@ -1,0 +1,2 @@
+Session: es independiente de las ejecuciones externas, en otro equipo o navegador.
+Application: todas las ejecuciones estan sincronizadas
